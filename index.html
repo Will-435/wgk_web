@@ -1,0 +1,276 @@
+<!DOCTYPE html>  <!-- include the EmailJS information for WGK Surgery -->
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WGK Surgery — </title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />   <!-- This here links the HTML file to the CSS file -->
+</head>
+
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+    (function() {
+        emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+    })();
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const contactToggle = document.querySelector(".contact-toggle");
+        const contactForm = document.querySelector(".contact-form");
+        const contactFormFields = document.querySelector(".contact-form-fields");
+
+        // Toggle form visibility with smooth animation
+        contactToggle.addEventListener("click", (e) => {
+            e.preventDefault(); // stop page jumping
+            contactForm.classList.toggle("show");
+        });
+
+        // Handle form submission
+        contactFormFields.addEventListener("submit", function(e) {
+            e.preventDefault();
+            emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+                name: this.name.value,
+                email: this.email.value,
+                message: this.message.value
+            })
+            .then(() => {
+                alert("Message sent successfully!");
+                contactForm.classList.remove("show"); // Hide after sending
+            })
+            .catch(() => {
+                alert("Failed to send message. Please try again.");
+            });
+        });
+    });
+</script>
+
+
+<body class="no-js">
+  <header class="site-header">
+    <div class="container header-inner">
+        <a class="brand" href="#">
+        <img src="Images/wgk_logo.png" alt="WGK Surgery" class="brand-logo" />
+
+        </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a class="cta contact-toggle" href="#">Contact</a>
+
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <h1>WGK Surgery</h1>
+          <p>Wales</p>
+          <a href="#contact" class="btn btn-gold">Enquire</a>
+        </div>
+        <div class="hero-media">
+          <img src="Images/wgk_logo.png"
+               alt="Lasting care since 2012" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="section section-services">
+      <div class="container">
+        <header class="section-head">
+          <h2>Services</h2>
+          <p>End-to-end support — From the first consultation to final check-up, we're on hand.</p>
+        </header>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">◆</div>
+            <h3>What</h3>
+            <p>Insert Waffle...</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">◆</div>
+            <h3>Where</h3>
+            <p>Insert Waffle...</p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">◆</div>
+            <h3>Why</h3>
+            <p>Insert Waffle...</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section section-history">
+      <div class="container split">
+        <div class="split-media">
+          <img src="Images/Jon.jpeg"
+               alt="Insert Waffles..." />
+        </div>
+        <div class="split-copy">
+          <h2>Our History</h2>
+          <p>Insert Waffle...</p>
+          <p>Insert Waffle...</p>
+          <p>Insert Waffle...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work / Gallery -->
+    <section id="work" class="section section-gallery">
+      <div class="container">
+        <header class="section-head">
+          <h2>Find Out More</h2>
+          <p>Select Below</p>
+        </header>
+
+        <div class="gallery">
+          <a href="#detail_1" class = "tile">
+            <figure">
+              <img src="Images/wgk_logo.png"
+                  alt="" />
+              <figcaption>Option 1</figcaption>
+            </figure>
+          </a>
+
+          <a href="#detail_2" class = "tile">
+            <figure">
+              <img src="Images/wgk_logo.png"
+                  alt="" />
+              <figcaption>Option 2</figcaption>
+            </figure>
+          </a>
+
+          <a href="#detail-3" class = "tile">
+            <figure">
+              <img src="Images/wgk_logo.png"
+                  alt="" />
+              <figcaption>Option 3</figcaption>
+            </figure>
+          </a>
+
+          <a href="#detail-4" class = "tile">
+            <figure">
+              <img src="Images/wgk_logo.png" 
+                alt = "" />
+              <figcaption>Option 4</figcaption>
+            </figure>
+          </a>
+        </div>
+      </div>
+
+      <!-- Hidden Details Section -->
+    <div id="detail_1" class="hidden-section">
+      <a href="#work" class="close">✖ Close Golf</a>
+      <h2>Option 1</h2>
+      <p>
+        Insert Waffle...
+      </p>
+    </div>
+
+    <div id="detail_2" class="hidden-section">
+      <a href="#work" class="close">✖ Close Golf</a>
+      <h2>Option 1</h2>
+      <p>
+        Insert Waffle...
+      </p>
+    </div>
+
+    <div id="detail_3" class="hidden-section">
+      <a href="#work" class="close">✖ Close Golf</a>
+      <h2>Option 1</h2>
+      <p>
+        Insert Waffle...
+      </p>
+    </div>
+
+    <div id="detail_4" class="hidden-section">
+      <a href="#work" class="close">✖ Close Golf</a>
+      <h2>Option 1</h2>
+      <p>
+        Insert Waffle...
+      </p>
+    </div>
+
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section section-talk">
+      <div class="container">
+        <header class="section-head">
+          <h2>Let's Talk</h2>
+          <p>Tell us about your goals. We'll follow up within one business day.</p>
+        </header>
+
+        <div class="contact-block">
+          <div class="contact-item">
+            <h3>Email</h3>
+            <p><a href="mailto:hello@acmeandco.example">hello@acmeandco.example</a></p>
+          </div>
+          <div class="contact-item">
+            <h3>Phone</h3>
+            <p><a href="tel:+441234567890">+44 1234 567 890</a></p>
+          </div>
+          <div class="contact-item">
+            <h3>Location</h3>
+            <p>Swansea, UK</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> Acme &amp; Co. All rights reserved.</p>
+      <ul class="social">
+        <li>
+          <a href="https://www.linkedin.com/company/wgk-surgery/posts/?feedView=all" aria-label="LinkedIn">
+            <!-- LinkedIn SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                viewBox="0 0 24 24">
+              <path d="M20.447 20.452H16.86V14.83c0-1.34-.027-3.065-1.865-3.065-1.865 
+                      0-2.151 1.454-2.151 2.957v5.73H9.257V9h3.45v1.561h.049c.48-.9 
+                      1.652-1.85 3.397-1.85 3.63 0 4.3 2.39 4.3 5.494v6.247zM5.337 
+                      7.433c-1.106 0-2-.897-2-2 0-1.104.894-2 
+                      2-2 1.105 0 2 .896 2 2 0 1.103-.895 2-2 
+                      2zM6.813 20.452H3.861V9h2.952v11.452zM22.225 
+                      0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 
+                      24 1.771 24h20.451C23.2 24 24 23.227 
+                      24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Floating Enquire Button and Contact Form -->
+  <div class="contact-widget">
+    <div class="contact-form">
+        <h4>How can we help?</h4>
+        <form class="contact-form-fields">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+  </div>
+
+
+  <script src="site.js"></script>   <!-- This here links the HTML file to the JS file -->
+</body>
+</html>
